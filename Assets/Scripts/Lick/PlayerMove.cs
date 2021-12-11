@@ -366,6 +366,7 @@ namespace Lick
         {
             speed = 0;
             is_can_control = false;
+            Vector3 pos = transform.position;
             transform.position = Decorticate_position;
             m_amin.SetBool("decorate", true);
             SetBlendshapeWeigth(10);
@@ -380,6 +381,7 @@ namespace Lick
             yield return new WaitForSeconds(1);
             m_amin.SetBool("decorate", false);
             speed = 4;
+            transform.position = new Vector3(transform.position.x, pos.y, transform.position.z); 
             Cut();
         }
 
