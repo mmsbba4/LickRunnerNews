@@ -9,6 +9,7 @@ namespace Lick
 {
     public class HeadSelector : MonoBehaviour
     {
+        public string player_name;
         public PlayerMove player;
         public UnityEvent StartGame;
         public Image[] selected_mark;
@@ -16,11 +17,11 @@ namespace Lick
 
         private void Start()
         {
-            SetHead(PlayerPrefs.GetInt("LastestHead"));
+            SetHead(PlayerPrefs.GetInt("LastestHead" + player_name));
         }
         public void SetHead(int index)
         {
-            PlayerPrefs.SetInt("LastestHead", index);
+            PlayerPrefs.SetInt("LastestHead" + player_name, index);
             foreach (var i in selected_mark)
             {
                 i.gameObject.SetActive(false);
